@@ -15,3 +15,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Execute-Script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "Workspace is ${{ github.workspace }}"
+      - run: |
+          ./${{ github.workspace }}/scripts/greeting
+      - run: echo "This job's status is ${{ job.status }}."
